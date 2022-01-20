@@ -8,7 +8,7 @@ type Props = {
 const Picture = ({ png, webp, alt, className }: Props) => {
   return (
     <picture>
-      <source src={webp} type="image/webp" />
+      <source srcSet={webp} type="image/webp" />
       <img className={`image ${className}`} src={png} alt={alt} />
     </picture>
   );
