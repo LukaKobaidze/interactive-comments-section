@@ -1,0 +1,50 @@
+.comment-score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 40px;
+  height: 100px;
+  background-color: var(--clr-neutral-very-light-gray);
+  border-radius: 10px;
+
+  @media (max-width: 650px) {
+    height: 35px;
+    width: 95px;
+    flex-direction: row;
+  }
+
+  &__number {
+    color: var(--clr-primary-moderate-blue);
+    font-weight: var(--font-weight-bold);
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+
+    @media (max-width: 650px) {
+    }
+
+    &--active {
+      & > svg > path {
+        fill: var(--clr-primary-moderate-blue);
+      }
+    }
+
+    & > svg > path {
+      transition: fill 0.1s ease-out;
+    }
+    @media (pointer: fine) {
+      &:hover {
+        & > svg > path {
+          fill: var(--clr-primary-moderate-blue);
+        }
+      }
+    }
+  }
+}

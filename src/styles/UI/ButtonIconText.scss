@@ -1,0 +1,28 @@
+.button-icon-text {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &__btn {
+    font-size: inherit;
+    font-family: inherit;
+    font-weight: var(--font-weight-medium);
+    height: 100%;
+    width: 100%;
+    background: none;
+    border: none;
+    padding-left: 20px;
+    color: currentColor;
+    cursor: pointer;
+  }
+  &__icon-div {
+    align-self: flex-end;
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+
+    & > svg > path {
+      fill: currentColor;
+    }
+  }
+}

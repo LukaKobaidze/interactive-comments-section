@@ -1,0 +1,17 @@
+.main {
+  margin: 0 auto;
+  padding-top: 55px;
+  padding-bottom: 20px;
+  width: 50%;
+  max-width: 950px;
+  min-width: 711.5px;
+
+  @media (max-width: 775px) {
+    width: 90%;
+    min-width: initial;
+  }
+  @media (max-width: 365px) {
+    width: 95%;
+    min-width: 249px;
+  }
+}

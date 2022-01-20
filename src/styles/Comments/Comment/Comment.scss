@@ -1,0 +1,30 @@
+@use '../../animations';
+
+.comment {
+  display: flex;
+  position: relative;
+  animation: scaleYGrow 0.2s;
+
+  @media (max-width: 650px) {
+    flex-direction: column-reverse;
+  }
+
+  &__div-1 {
+    margin-right: 20px;
+
+    @media (max-width: 650px) {
+      margin-right: 0;
+      margin-top: 12px;
+    }
+  }
+
+  &__div-2 {
+    width: 100%;
+    min-width: 0;
+  }
+
+  &__author {
+    display: flex;
+    margin-bottom: 15px;
+  }
+}

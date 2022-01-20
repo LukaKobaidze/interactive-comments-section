@@ -1,0 +1,12 @@
+@keyframes scaleYGrow {
+  0% {
+    transform-origin: top;
+    opacity: 0;
+    transform: scaleY(0.5);
+  }
+  100% {
+    transform-origin: top;
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}

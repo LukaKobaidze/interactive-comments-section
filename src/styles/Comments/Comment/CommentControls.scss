@@ -1,0 +1,44 @@
+.comment-controls {
+  display: flex;
+  gap: 25px;
+  margin-left: auto;
+  position: absolute;
+  top: 27px;
+  right: 25px;
+
+  @media (max-width: 750px) {
+    gap: 15px;
+  }
+
+  @media (max-width: 650px) {
+    top: initial;
+    bottom: 22px;
+  }
+
+  &--reply {
+    color: var(--clr-primary-moderate-blue);
+  }
+  &--edit {
+    color: var(--clr-primary-moderate-blue);
+  }
+  &--delete {
+    color: var(--clr-primary-soft-red);
+
+    @media (pointer: fine) {
+      transition: color 0.25s ease-out;
+      &:hover {
+        color: var(--clr-primary-pale-red);
+      }
+    }
+  }
+
+  &--reply,
+  &--edit {
+    @media (pointer: fine) {
+      transition: color 0.25s ease-out;
+      &:hover {
+        color: var(--clr-primary-light-grayish-blue);
+      }
+    }
+  }
+}

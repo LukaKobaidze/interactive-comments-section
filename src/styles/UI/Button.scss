@@ -1,0 +1,24 @@
+.button {
+  display: block;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: var(--font-weight-medium);
+  border: none;
+  border-radius: 7px;
+  color: var(--clr-neutral-white);
+  background-color: var(--clr-primary-moderate-blue);
+  outline-color: var(--clr-neutral-dark-blue);
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-out;
+
+  @media (pointer: fine) {
+    &:hover {
+      background-color: var(--clr-primary-light-grayish-blue);
+    }
+  }
+
+  @media (max-width: 450px) {
+    padding: 7px 14px;
+  }
+}

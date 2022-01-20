@@ -1,0 +1,45 @@
+@use '../animations';
+
+.comments-add {
+  display: flex;
+  margin-top: 20px;
+  animation: scaleYGrow 0.25s;
+
+  &--reply {
+    margin-top: 10px;
+  }
+
+  &__avatar {
+    width: 40px;
+    margin-right: 20px;
+  }
+
+  &__form {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
+
+    &--input {
+      height: 90px;
+      width: 100%;
+    }
+    &--submit {
+      margin-left: 15px;
+      padding: 14px 30px;
+
+      @media (max-width: 500px) {
+        margin-left: 0;
+        margin-top: 15px;
+        align-self: flex-end;
+        padding: 9px 22px;
+      }
+      @media (max-width: 350px) {
+        padding: 7px 17px;
+      }
+    }
+  }
+}

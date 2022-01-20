@@ -1,0 +1,15 @@
+.textarea {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: inherit;
+  resize: none;
+  padding: 10px;
+  border: none;
+  outline: 1px solid var(--clr-neutral-light-gray);
+  border-radius: 10px;
+  transition: outline 0.1s ease-out;
+
+  &:focus {
+    outline: 1px solid var(--clr-primary-moderate-blue);
+  }
+}

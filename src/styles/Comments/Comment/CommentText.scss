@@ -1,0 +1,37 @@
+.comment-text {
+  color: var(--clr-neutral-grayish-blue);
+  line-height: 1.5;
+  position: relative;
+
+  &--expand {
+    padding-bottom: 30px;
+  }
+
+  &--p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  &__btn-update {
+    margin-left: auto;
+    margin-top: 10px;
+  }
+
+  &__textarea {
+    width: 100%;
+  }
+
+  &__btn-more {
+    width: 150px;
+    transform: translateY(20px);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  &--link {
+    color: var(--clr-primary-moderate-blue);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+  }
+}
