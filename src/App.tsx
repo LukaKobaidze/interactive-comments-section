@@ -4,11 +4,14 @@ import './App.scss';
 
 function App() {
   return (
-    <main className="main">
-      <CommentContextProvider>
-        <Comments />
-      </CommentContextProvider>
-    </main>
+    <>
+      <h1 className="hidden">Interactive Comments Section</h1>
+      <main className="main">
+        <CommentContextProvider>
+          <Comments />
+        </CommentContextProvider>
+      </main>
+    </>
   );
 }
 

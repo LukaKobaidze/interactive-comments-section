@@ -60,23 +60,23 @@ const CommentScore = (props: Props) => {
 
   return (
     <div className="comment-score">
-      <button
+      <div
         className={`comment-score__button ${
           voted() === 'upvote' && 'comment-score__button--active'
         }`}
         onClick={upVoteHandler}
       >
         <IconPlus />
-      </button>
+      </div>
       <div className="comment-score__number">{scoreNumber}</div>
-      <button
+      <div
         className={`comment-score__button ${
           voted() === 'downvote' && 'comment-score__button--active'
         }`}
         onClick={downVoteHandler}
       >
         <IconMinus />
-      </button>
+      </div>
     </div>
   );
 };
