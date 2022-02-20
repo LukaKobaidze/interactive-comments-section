@@ -3,7 +3,6 @@
  * @returns how much time ago was `createdAt`, e.g. `'5 seconds ago'` | `'2 weeks ago'` | `'5 years ago'`
  */
 export const getTimeAgo = (createdAt: number) => {
-  console.log(createdAt);
   const secondsAgo = Math.floor((Date.now() - createdAt) / 1000);
   const minutesAgo = secondsAgo / 60;
   const hoursAgo = minutesAgo / 60;
