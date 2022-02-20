@@ -1,12 +1,12 @@
 import { useContext, useState } from 'react';
-import CommentContext, { CommentType } from '../../../context/comment-context';
+import CommentContext from 'context/comment-context';
 import CommentAuthor from './CommentAuthor';
 import CommentText from './CommentText';
 import CommentControls from './CommentControls';
 import CommentScore from './CommentScore';
 import CommentsAdd from '../CommentsAdd';
 import ModalDelete from './ModalDelete';
-import '../../../styles/Comments/Comment/Comment.scss';
+import 'styles/Comments/Comment/Comment.scss';
 
 type Props = {
   id: number;
@@ -36,11 +36,11 @@ const Comment = (props: Props) => {
   };
 
   const toggleReplyingHandler = () => {
-    setIsReplying(prevState => !prevState);
+    setIsReplying((prevState) => !prevState);
   };
 
   const toggleEditingHandler = () => {
-    setIsEditing(prevState => !prevState);
+    setIsEditing((prevState) => !prevState);
   };
 
   return (
@@ -51,9 +51,7 @@ const Comment = (props: Props) => {
             score={props.score}
             id={props.id}
             username={props.username}
-            commentType={
-              props.replyingTo ? CommentType.Reply : CommentType.Comment
-            }
+            commentType={props.replyingTo ? 'reply' : 'comment'}
           />
         </div>
         <div className="comment__div-2">
@@ -100,9 +98,7 @@ const Comment = (props: Props) => {
         <ModalDelete
           username={props.username}
           id={props.id}
-          commentType={
-            props.replyingTo ? CommentType.Reply : CommentType.Comment
-          }
+          commentType={props.replyingTo ? 'reply' : 'comment'}
           hideDeleteModalHandler={hideDeleteModalHandler}
         />
       )}

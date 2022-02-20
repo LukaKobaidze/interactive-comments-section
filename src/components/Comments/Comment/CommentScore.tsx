@@ -1,14 +1,15 @@
 import { useContext } from 'react';
-import CommentContext, { CommentType } from '../../../context/comment-context';
-import IconPlus from '../../UI/Icons/IconPlus';
-import IconMinus from '../../UI/Icons/IconMinus';
-import '../../../styles/Comments/Comment/CommentScore.scss';
+import CommentContext from 'context/comment-context';
+import IconPlus from 'components/UI/Icons/IconPlus';
+import IconMinus from 'components/UI/Icons/IconMinus';
+import 'styles/Comments/Comment/CommentScore.scss';
+import { CommentType } from 'shared/types/comment.type';
 
 type Props = {
   score: string[][];
   id: number;
   username: string;
-  commentType: CommentType.Comment | CommentType.Reply;
+  commentType: CommentType;
 };
 
 const CommentScore = (props: Props) => {
@@ -37,8 +38,8 @@ const CommentScore = (props: Props) => {
   const voted = (): string | undefined => {
     if (!commentsData) return undefined;
     const comment = commentsData.find(
-      comment =>
-        comment.id === id || comment.replies.some(reply => reply.id === id)
+      (comment) =>
+        comment.id === id || comment.replies.some((reply) => reply.id === id)
     );
     if (!comment) {
       return undefined;
@@ -46,9 +47,9 @@ const CommentScore = (props: Props) => {
 
     const findScore = (score: string[]) => score[0] === currentUser.username;
 
-    if (commentType === CommentType.Reply) {
+    if (commentType === 'reply') {
       const find = comment?.replies
-        .find(reply => reply.id === id)!
+        .find((reply) => reply.id === id)!
         .score.find(findScore);
       if (!find) return undefined;
       return find[1];

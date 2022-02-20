@@ -5,11 +5,11 @@ import React, {
   useRef,
   useState,
 } from 'react';
-import CommentContext, { CommentType } from '../../../context/comment-context';
-import useViewportDimensions from '../../../hooks/useViewportDimensions';
-import Textarea from '../../UI/Textarea';
-import Button from '../../UI/Button';
-import '../../../styles/Comments/Comment/CommentText.scss';
+import useViewportDimensions from 'hooks/useViewportDimensions';
+import CommentContext from 'context/comment-context';
+import Textarea from 'components/UI/Textarea';
+import Button from 'components/UI/Button';
+import 'styles/Comments/Comment/CommentText.scss';
 
 type Props = {
   id: number;
@@ -51,7 +51,7 @@ const CommentText = (props: Props) => {
       onEditText(
         id,
         textareaRef.current?.value!,
-        replyingTo ? CommentType.Reply : CommentType.Comment
+        replyingTo ? 'reply' : 'comment'
       );
     }
   };

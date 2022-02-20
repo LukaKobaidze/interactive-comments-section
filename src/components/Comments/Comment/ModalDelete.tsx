@@ -1,14 +1,15 @@
 import { useContext } from 'react';
-import CommentContext, { CommentType } from '../../../context/comment-context';
-import Backdrop from '../../UI/Backdrop';
-import Modal from '../../UI/Modal';
-import Button from '../../UI/Button';
-import '../../../styles/Comments/Comment/ModalDelete.scss';
+import { CommentType } from 'shared/types/comment.type';
+import CommentContext from 'context/comment-context';
+import Backdrop from 'components/UI/Backdrop';
+import Modal from 'components/UI/Modal';
+import Button from 'components/UI/Button';
+import 'styles/Comments/Comment/ModalDelete.scss';
 
 type Props = {
   username: string;
   id: number;
-  commentType: CommentType.Comment | CommentType.Reply;
+  commentType: CommentType;
   hideDeleteModalHandler: () => void;
 };
 

@@ -1,9 +1,9 @@
 import { useContext, useEffect, useRef } from 'react';
-import Button from '../UI/Button';
-import Textarea from '../UI/Textarea';
-import '../../styles/Comments/CommentsAdd.scss';
-import CommentContext from '../../context/comment-context';
-import Picture from '../UI/Picture';
+import CommentContext from 'context/comment-context';
+import Button from 'components/UI/Button';
+import Textarea from 'components/UI/Textarea';
+import Picture from 'components/UI/Picture';
+import 'styles/Comments/CommentsAdd.scss';
 
 type Props = {
   addCommentHandler?: (enteredText: string) => void;

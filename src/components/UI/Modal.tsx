@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import '../../styles/UI/Modal.scss';
+import 'styles/UI/Modal.scss';
 
 type Props = {
   children: React.ReactNode;

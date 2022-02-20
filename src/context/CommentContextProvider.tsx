@@ -1,6 +1,7 @@
-import CommentContext, { CommentType } from './comment-context';
-import React, { useEffect, useState } from 'react';
-import dataJSON from '../data/data.json';
+import { useEffect, useState } from 'react';
+import CommentContext from './comment-context';
+import dataJSON from 'data/data.json';
+import { CommentType } from 'shared/types/comment.type';
 
 export type UserType = {
   image: {
@@ -39,18 +40,18 @@ export const generateNewReply = (
 export const findCommentWithId = (
   data: typeof dataJSON.comments,
   id: number,
-  commentType: CommentType.Comment | CommentType.Reply
+  commentType: CommentType
 ) => {
   const commentIndex = data.findIndex(
-    comment =>
-      comment.id === id || comment.replies.some(reply => reply.id === id)
+    (comment) =>
+      comment.id === id || comment.replies.some((reply) => reply.id === id)
   );
   const replyIndex =
-    commentType === CommentType.Reply
-      ? data[commentIndex].replies.findIndex(reply => reply.id === id)
+    commentType === 'reply'
+      ? data[commentIndex].replies.findIndex((reply) => reply.id === id)
       : undefined;
 
-  return commentType === CommentType.Reply
+  return commentType === 'reply'
     ? data[commentIndex].replies[replyIndex!]
     : data[commentIndex];
 };
@@ -71,7 +72,7 @@ const CommentContextProvider = ({ children }: Props) => {
   }, [commentsData]);
 
   const addCommentHandler = (enteredText: string) => {
-    setCommentsData(prevState => {
+    setCommentsData((prevState) => {
       const copyState = prevState.slice();
       const newComment = generateNewComment(dataJSON.currentUser, enteredText);
       copyState.push(newComment);
@@ -84,7 +85,7 @@ const CommentContextProvider = ({ children }: Props) => {
     username: string,
     enteredText: string
   ) => {
-    setCommentsData(prevState => {
+    setCommentsData((prevState) => {
       const newReply = generateNewReply(
         dataJSON.currentUser,
         enteredText,
@@ -92,8 +93,8 @@ const CommentContextProvider = ({ children }: Props) => {
       );
       const copyState = prevState.slice();
       const index = copyState.findIndex(
-        comment =>
-          comment.id === id || comment.replies.some(reply => reply.id === id)
+        (comment) =>
+          comment.id === id || comment.replies.some((reply) => reply.id === id)
       );
       copyState[index].replies.push(newReply);
       return copyState;
@@ -103,9 +104,9 @@ const CommentContextProvider = ({ children }: Props) => {
   const editTextHandler = (
     id: number,
     enteredText: string,
-    type: CommentType.Comment | CommentType.Reply
+    type: CommentType
   ) => {
-    setCommentsData(prevState => {
+    setCommentsData((prevState) => {
       const copyState = prevState.slice();
       const comment = findCommentWithId(copyState, id, type);
       comment.content = enteredText;
@@ -113,36 +114,33 @@ const CommentContextProvider = ({ children }: Props) => {
     });
   };
 
-  const deleteHandler = (
-    id: string | number,
-    commentType: CommentType.Comment | CommentType.Reply
-  ) => {
-    setCommentsData(prevState => {
+  const deleteHandler = (id: string | number, commentType: CommentType) => {
+    setCommentsData((prevState) => {
       const copyState = prevState.slice();
 
-      if (commentType === CommentType.Reply) {
-        const index = copyState.findIndex(comment => {
-          if (commentType === CommentType.Reply) {
-            return comment.replies.some(reply => reply.id === id);
+      if (commentType === 'reply') {
+        const index = copyState.findIndex((comment) => {
+          if (commentType === 'reply') {
+            return comment.replies.some((reply) => reply.id === id);
           }
           return comment.id === id;
         });
         copyState[index].replies = copyState[index].replies.filter(
-          reply => reply.id !== id
+          (reply) => reply.id !== id
         );
         return copyState;
       }
 
-      return copyState.filter(comment => comment.id !== id);
+      return copyState.filter((comment) => comment.id !== id);
     });
   };
 
   const voteHandler = (
     id: number,
     vote: string[],
-    commentType: CommentType.Comment | CommentType.Reply
+    commentType: CommentType
   ) => {
-    setCommentsData(prevState => {
+    setCommentsData((prevState) => {
       const copyState = prevState.slice();
       const idComment = findCommentWithId(copyState, id, commentType);
 
@@ -150,7 +148,7 @@ const CommentContextProvider = ({ children }: Props) => {
         return prevState;
       }
       const commentScore = idComment.score;
-      const voteIndex = commentScore.findIndex(score => score[0] === vote[0]);
+      const voteIndex = commentScore.findIndex((score) => score[0] === vote[0]);
       if (voteIndex === -1) {
         commentScore.unshift(vote);
       } else {

@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom';
-import '../../styles/UI/Backdrop.scss';
+import 'styles/UI/Backdrop.scss';
 
 type Props = {
   className?: string;

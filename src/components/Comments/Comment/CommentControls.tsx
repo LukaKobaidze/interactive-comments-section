@@ -1,8 +1,8 @@
-import IconDelete from '../../UI/Icons/IconDelete';
-import IconEdit from '../../UI/Icons/IconEdit';
-import IconReply from '../../UI/Icons/IconReply';
-import ButtonIconText from '../../UI/ButtonIconText';
-import '../../../styles/Comments/Comment/CommentControls.scss';
+import IconDelete from 'components/UI/Icons/IconDelete';
+import IconEdit from 'components/UI/Icons/IconEdit';
+import IconReply from 'components/UI/Icons/IconReply';
+import ButtonIconText from 'components/UI/ButtonIconText';
+import 'styles/Comments/Comment/CommentControls.scss';
 
 type Props = {
   type: 'you' | 'other';

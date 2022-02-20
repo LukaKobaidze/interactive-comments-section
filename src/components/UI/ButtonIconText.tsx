@@ -1,4 +1,4 @@
-import '../../styles/UI/ButtonIconText.scss';
+import 'styles/UI/ButtonIconText.scss';
 
 type Props = {
   icon: React.ReactNode;

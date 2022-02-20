@@ -1,8 +1,8 @@
 import { useContext } from 'react';
-import CommentContext from '../../context/comment-context';
+import CommentContext from 'context/comment-context';
 import Comment from './Comment/Comment';
 import CommentsAdd from './CommentsAdd';
-import '../../styles/Comments/Comments.scss';
+import 'styles/Comments/Comments.scss';
 
 const Comments = () => {
   const { commentsData, onAddComment } = useContext(CommentContext);
@@ -22,7 +22,7 @@ const Comments = () => {
   };
 
   const renderCommentsAndReplies = () => {
-    return commentsData.map(comment => (
+    return commentsData.map((comment) => (
       <li key={comment.id}>
         {generateJSXComment(comment)}
 
@@ -30,7 +30,7 @@ const Comments = () => {
 
         {comment.replies[0] && (
           <ul className="replies">
-            {comment.replies.map(reply => (
+            {comment.replies.map((reply) => (
               <li key={reply.id}>{generateJSXComment(reply)}</li>
             ))}
           </ul>

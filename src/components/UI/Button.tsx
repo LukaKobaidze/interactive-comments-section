@@ -1,4 +1,4 @@
-import '../../styles/UI/Button.scss';
+import 'styles/UI/Button.scss';
 
 type Props = {
   children: React.ReactNode;

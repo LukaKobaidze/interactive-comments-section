@@ -1,4 +1,4 @@
-import '../../styles/UI/Textarea.scss';
+import 'styles/UI/Textarea.scss';
 
 type Props = {
   className?: string;
